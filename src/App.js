@@ -26,12 +26,18 @@ function App () {
     }
 
     return (
-        <div className='app'>
+        <div className='app' style={!username ? {justifyContent: 'center'} : {}}>
             <Header username={username} />
             <div className='app-body'>
                 {
                     !username ? <InitialGreeting onSetUsername={handleSetUsername} />
-                    : <Todos username={username} todos={todos} onAddTodo={handleAddTodo} onUpdateTodoStatus={handleUpdateTodoStatus} onDeleteTodo={handleDeleteTodo} />
+                    : <Todos 
+                        username={username} 
+                        todos={todos} 
+                        onAddTodo={handleAddTodo} 
+                        onUpdateTodoStatus={handleUpdateTodoStatus} 
+                        onDeleteTodo={handleDeleteTodo} 
+                    />
                 }
             </div>
             <Footer />

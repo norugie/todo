@@ -30,7 +30,13 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo}) 
                 todos.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
                 : <ul>
                     {
-                        todos.map((todo) => <Todo todo={todo} key={todo.id} onUpdateTodoStatus={onUpdateTodoStatus} onDeleteTodo={onDeleteTodo} />)
+                        todos.map((todo) => <Todo 
+                                                todo={todo} 
+                                                key={todo.id} 
+                                                onUpdateTodoStatus={onUpdateTodoStatus} 
+                                                onDeleteTodo={onDeleteTodo} 
+                                            />
+                        )
                     }
                 </ul>
             }
