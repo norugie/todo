@@ -27,7 +27,7 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo}) 
                 <Button>Add Todo</Button>
             </form>
             {
-                todos.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
+                todos?.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
                 : <ul>
                     {
                         todos.map((todo) => <Todo 
