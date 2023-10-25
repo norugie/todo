@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Todo from './todo';
 import Button from './button';
 
-function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo}) {
+function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo, onDeleteAllTodos}) {
     const [title, setTitle] = useState('');
 
     function handleAddTodo (e) {
@@ -26,8 +26,9 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo}) 
                 <input type='text' id='app-name' className='app-text' autoComplete='off' value={title} onChange={(e) => setTitle(e.target.value)} />
                 <Button>Add Todo</Button>
             </form>
+            {todos.length > 0 && <p style={{marginTop: '0'}}><a href='/#' onClick={onDeleteAllTodos}>Clear all TODO items</a></p>}
             {
-                todos?.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
+                todos.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
                 : <ul>
                     {
                         todos.map((todo) => <Todo 

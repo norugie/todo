@@ -50,6 +50,10 @@ a {
     color: #009e60;
 }
 
+p {
+    text-align: center;
+}
+
 .app-footer {
     position: fixed;
     bottom: 20px;

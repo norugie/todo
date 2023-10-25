@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/header';
+import ClearValues from './components/clearvalues';
 import InitialGreeting from './components/initialgreeting';
 import Todos from './components/todos';
 import Footer from './components/footer';
@@ -25,6 +26,15 @@ function App () {
         setTodos((todos) => todos.filter((todo) => todo.id !== id));
     }
 
+    function handleDeleteAllTodos () {
+        setTodos([]);
+    }
+
+    function handleClearAll () {
+        setTodos([]);
+        setUsername(null);
+    }
+
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
         localStorage.setItem('username', username);
@@ -34,14 +44,17 @@ function App () {
         <div className='app' style={!username ? {justifyContent: 'center'} : {}}>
             <Header username={username} />
             <div className='app-body'>
+                {username && <ClearValues onClearValues={handleClearAll} />}
                 {
-                    !username ? <InitialGreeting onSetUsername={handleSetUsername} />
+                    !username ? 
+                        <InitialGreeting onSetUsername={handleSetUsername} />
                     : <Todos 
                         username={username} 
                         todos={todos} 
                         onAddTodo={handleAddTodo} 
                         onUpdateTodoStatus={handleUpdateTodoStatus} 
-                        onDeleteTodo={handleDeleteTodo} 
+                        onDeleteTodo={handleDeleteTodo}
+                        onDeleteAllTodos={handleDeleteAllTodos}
                     />
                 }
             </div>
