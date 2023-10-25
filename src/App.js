@@ -8,7 +8,7 @@ import Footer from './components/footer';
 
 function App () {
     const [username, setUsername] = useState(localStorage.getItem('username') !== 'null' ? localStorage.getItem('username') : null);
-    const [todos, setTodos] = useState(localStorage.getItem('todos') !== 'null' || localStorage.getItem('todos') !== undefined ? JSON.parse(localStorage.getItem('todos')) : []);
+    const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?? []);
 
     function handleSetUsername (name) {
         setUsername(name);
@@ -37,7 +37,8 @@ function App () {
 
     useEffect(() => {
         localStorage.setItem('username', username);
-    }, [username]);
+        localStorage.setItem('todos', todos);
+    }, [username, todos]);
     
     return (
         <div className='app' style={!username ? {justifyContent: 'center'} : {}}>
