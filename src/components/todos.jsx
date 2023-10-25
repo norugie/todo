@@ -26,7 +26,7 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo, o
                 <input type='text' id='app-name' className='app-text' autoComplete='off' value={title} onChange={(e) => setTitle(e.target.value)} />
                 <Button>Add Todo</Button>
             </form>
-            {console.log(localStorage.getItem('todos')}
+            {console.log(localStorage.getItem('todos'))}
             {todos?.length > 0 && <p style={{marginTop: '0'}}><a href='/#' onClick={onDeleteAllTodos}>Clear all TODO items</a></p>}
             {
                 !todos || todos.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
