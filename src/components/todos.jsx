@@ -28,7 +28,7 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo, o
             </form>
             {todos?.length > 0 && <p style={{marginTop: '0'}}><a href='/#' onClick={onDeleteAllTodos}>Clear all TODO items</a></p>}
             {
-                todos || todos.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
+                todos || todos?.length === 0 ? <p style={{textAlign: 'center'}}>Seems you have no todo items set yet, {username}.</p>
                 : <ul>
                     {
                         todos?.map((todo) => <Todo 
