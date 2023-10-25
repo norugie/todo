@@ -36,9 +36,8 @@ function App () {
     }
 
     useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
         localStorage.setItem('username', username);
-    }, [username, todos]);
+    }, [username]);
     
     return (
         <div className='app' style={!username ? {justifyContent: 'center'} : {}}>
