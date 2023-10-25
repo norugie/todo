@@ -8,7 +8,7 @@ import Footer from './components/footer';
 
 function App () {
     const [username, setUsername] = useState(localStorage.getItem('username') !== 'null' ? localStorage.getItem('username') : null);
-    const [todos, setTodos] = useState(localStorage.getItem('todos') !== undefined || localStorage.getItem('todos') !== 'null' || localStorage.getItem('todos') !== '[]' ? JSON.parse(localStorage.getItem('todos')) : []);
+    const [todos, setTodos] = useState(localStorage.getItem('todos') !== 'null' || localStorage.getItem('todos') !== undefined ? JSON.parse(localStorage.getItem('todos')) : []);
 
     function handleSetUsername (name) {
         setUsername(name);
