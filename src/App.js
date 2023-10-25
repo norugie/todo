@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/header';
 import InitialGreeting from './components/initialgreeting';
@@ -6,7 +6,7 @@ import Todos from './components/todos';
 import Footer from './components/footer';
 
 function App () {
-    const [username, setUsername] = useState(null);
+    const [username, setUsername] = useState(localStorage.getItem('username') !== 'null' ? localStorage.getItem('username') : null);
     const [todos, setTodos] = useState([]);
 
     function handleSetUsername (name) {
@@ -25,6 +25,10 @@ function App () {
         setTodos((todos) => todos.filter((todo) => todo.id !== id));
     }
 
+    useEffect(() => {
+        localStorage.setItem('username', username);
+    }, [username]);
+    
     return (
         <div className='app' style={!username ? {justifyContent: 'center'} : {}}>
             <Header username={username} />
