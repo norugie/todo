@@ -13,7 +13,7 @@ function Todos ({username, todos, onAddTodo, onUpdateTodoStatus, onDeleteTodo, o
         const newTodo = {
             id: id,
             title: title,
-            status: 0
+            status: false
         }
 
         onAddTodo(newTodo);
