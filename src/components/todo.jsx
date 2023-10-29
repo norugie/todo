@@ -5,7 +5,7 @@ function Todo ({todo, onUpdateTodoStatus, onDeleteTodo}) {
             <span style={todo.status ? {'textDecoration': 'line-through'} : {}}>
                 {todo.title}
             </span>
-            <button style={{'color': 'red'}} onClick={() => onDeleteTodo(todo.id)}>X</button>
+            <button onClick={() => onDeleteTodo(todo.id)}>X</button>
         </li>
     );
 }
